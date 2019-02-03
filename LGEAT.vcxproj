@@ -110,6 +110,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleSourceGate.cpp" />
+    <ClCompile Include="Genome.cpp" />
+    <ClCompile Include="InputGate.cpp" />
+    <ClCompile Include="LogicGate.cpp" />
+    <ClCompile Include="NOTGate.cpp" />
+    <ClCompile Include="OutputGate.cpp" />
+    <ClCompile Include="program.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DoubleSourceGate.h" />
+    <ClInclude Include="Genome.h" />
+    <ClInclude Include="InputGate.h" />
+    <ClInclude Include="LogicGate.h" />
+    <ClInclude Include="MISC.h" />
+    <ClInclude Include="NOTGate.h" />
+    <ClInclude Include="OutputGate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
