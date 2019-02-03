@@ -11,7 +11,7 @@ class Genome
 		Genome(int inputs, int outputs);
 		~Genome();
 		bool GetOutput(int index);
-		void AddGate(LogicGate* prev, LogicGate* next);
+		void AddGate(LogicGate* prev, LogicGate* next,LogicGate* gate);
 
 	private:
 		int inputCount;

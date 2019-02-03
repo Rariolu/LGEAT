@@ -28,3 +28,7 @@ bool Genome::GetOutput(int index)
 	return outputGates[index % outputCount]->GetOutput();
 }
 
+void Genome::AddGate(LogicGate* prev, LogicGate* next, LogicGate* gate)
+{
+	
+}
