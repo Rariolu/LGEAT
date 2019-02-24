@@ -11,6 +11,7 @@ class InputGate : public LogicGate
 		void SetInitialValue(bool val);
 		bool GetOutput();
 		LogicGate* GetClone();
+		InputGate* GetInputGateClone();
 	private:
 		bool storedValue;
 };

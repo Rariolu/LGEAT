@@ -17,5 +17,15 @@ bool OutputGate::GetOutput()
 
 LogicGate* OutputGate::GetClone()
 {
-	return NULL;//TODO Fix this
+	if (!clone)
+	{
+		clone = new OutputGate();
+		clone->CreateInput(inputLinks[0]->GetClone(),0);
+	}
+	return clone;
+}
+
+OutputGate* OutputGate::GetOutputGateClone()
+{
+	return (OutputGate*)GetClone();
 }

@@ -10,6 +10,7 @@ class NOTGate : public LogicGate
 		~NOTGate();
 		bool GetOutput();
 		LogicGate* GetClone();
+		void CreateInput(LogicGate* gate);
 };
 
 #endif

@@ -1,5 +1,7 @@
 #include "LogicGate.h"
 
+const int LogicGate::maxDistance = 1000000;
+
 LogicGate::LogicGate(int inputs)
 {
 	inputQuantity = inputs;
@@ -7,7 +9,11 @@ LogicGate::LogicGate(int inputs)
 
 LogicGate::~LogicGate()
 {
-
+	for (int i = 0; i < inputQuantity; i++)
+	{
+		delete inputLinks[i];
+		inputLinks[i] = NULL;
+	}
 }
 
 bool LogicGate::SourceVal(int link)
@@ -16,10 +22,31 @@ bool LogicGate::SourceVal(int link)
 	return inputLinks[link] ? inputLinks[link]->GetSource()->GetOutput() : false;
 }
 
-void LogicGate::Memorise(bool val)
+bool LogicGate::Memorise(bool val)
 {
 	memorised = true;
-	memorisedValue = val;
+	return memorisedValue = val;
+}
+
+void LogicGate::ResetMemory()
+{
+	memorised = false;
+}
+
+int LogicGate::InputQuantity()
+{
+	return inputQuantity;
+}
+
+void LogicGate::CloneOutputLinks()
+{
+	if (clone)
+	{
+		for (Link* outLink : outputLinks)
+		{
+			clone->CreateOutput(outLink->GetClone());
+		}
+	}
 }
 
 void LogicGate::CreateInput(LogicGate::Link* link, int index)
@@ -34,11 +61,12 @@ void LogicGate::CreateInput(LogicGate::Link* link, int index)
 
 void LogicGate::CreateOutput(LogicGate::Link* link)
 {
-	if (outputLink)
-	{
-		delete outputLink;
-	}
-	outputLink = link;
+	outputLinks.push_back(link);
+	//if (outputLink)
+	//{
+	//	delete outputLink;
+	//}
+	//outputLink = link;
 }
 
 void LogicGate::CreateInput(LogicGate* gate, int index)

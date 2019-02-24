@@ -110,21 +110,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleManager.cpp" />
+    <ClCompile Include="CSRand.cpp" />
     <ClCompile Include="DoubleSourceGate.cpp" />
     <ClCompile Include="Genome.cpp" />
     <ClCompile Include="InputGate.cpp" />
     <ClCompile Include="LogicGate.cpp" />
     <ClCompile Include="NOTGate.cpp" />
+    <ClCompile Include="Operations.cpp" />
     <ClCompile Include="OutputGate.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleManager.h" />
+    <ClInclude Include="CSRand.h" />
     <ClInclude Include="DoubleSourceGate.h" />
+    <ClInclude Include="DoubleWrapper.h" />
     <ClInclude Include="Genome.h" />
     <ClInclude Include="InputGate.h" />
+    <ClInclude Include="IntWrapper.h" />
     <ClInclude Include="LogicGate.h" />
     <ClInclude Include="MISC.h" />
     <ClInclude Include="NOTGate.h" />
+    <ClInclude Include="Operations.h" />
     <ClInclude Include="OutputGate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

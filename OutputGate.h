@@ -2,6 +2,7 @@
 #define _OUTPUTGATE_H
 
 #include "LogicGate.h"
+
 class OutputGate : public LogicGate
 {
 	public:
@@ -9,6 +10,7 @@ class OutputGate : public LogicGate
 		~OutputGate();
 		bool GetOutput();
 		LogicGate* GetClone();
+		OutputGate* GetOutputGateClone();
 };
 
 #endif

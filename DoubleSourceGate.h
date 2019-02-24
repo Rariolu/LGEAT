@@ -19,6 +19,7 @@ class DoubleSourceGate : public LogicGate
 		DoubleSourceGate(DSOURCEGATE gate);
 		~DoubleSourceGate();
 		bool GetOutput();
+		bool GetGateOutput();
 		DSOURCEGATE GetGateType();
 		void SetGateType(DSOURCEGATE gate);
 		LogicGate* GetClone();

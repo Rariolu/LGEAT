@@ -27,6 +27,13 @@ LogicGate* InputGate::GetClone()
 	if (!clone)
 	{
 		clone = new InputGate();
+		CloneOutputLinks();
+		//clone->CreateOutput(outputLink->GetClone());
 	}
 	return clone;
+}
+
+InputGate* InputGate::GetInputGateClone()
+{
+	return (InputGate*)GetClone();
 }

@@ -15,14 +15,26 @@ NOTGate::~NOTGate()
 
 bool NOTGate::GetOutput()
 {
-	return !SourceVal(0);
+	if (memorised)
+	{
+		return memorisedValue;
+	}
+	return Memorise(!SourceVal(0));
 }
 
 LogicGate* NOTGate::GetClone()
 {
 	if (!clone)
 	{
-		return clone = new NOTGate();
+		clone = new NOTGate();
+		clone->CreateInput(inputLinks[0]->GetClone(),0);
+		CloneOutputLinks();
+		//clone->CreateOutput(outputLink);
 	}
 	return clone;
+}
+
+void NOTGate::CreateInput(LogicGate* gate)
+{
+
 }

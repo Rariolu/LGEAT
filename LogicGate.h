@@ -42,18 +42,23 @@ class LogicGate
 		~LogicGate();
 		virtual bool GetOutput()=0;
 		virtual LogicGate* GetClone()=0;
+		void CloneOutputLinks();
 		void CreateInput(Link* link, int index);
 		void CreateOutput(Link* link);
 		void CreateInput(LogicGate* gate, int index);
 		//void CreateOutput(LogicGate* gate);
+		void ResetMemory();
+		int InputQuantity();
 	protected:
 		Link* inputLinks[2];
-		Link* outputLink;
+		//Link* outputLink;
+		std::vector<Link*> outputLinks;
 		bool SourceVal(int link);
 		LogicGate* clone;
 		bool memorised = false;
 		bool memorisedValue;
-		void Memorise(bool val);
+		bool Memorise(bool val);
+		static const int maxDistance;
 	private:
 		int inputQuantity;
 		
