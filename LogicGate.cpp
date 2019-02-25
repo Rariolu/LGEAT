@@ -1,10 +1,13 @@
 #include "LogicGate.h"
 
-const int LogicGate::maxDistance = 1000000;
+const double LogicGate::maxDistance = 10000;
+const double LogicGate::maxElevation = 10000;
 
 LogicGate::LogicGate(int inputs)
 {
 	inputQuantity = inputs;
+	SetDistance(Operations::randd->Next(1, maxDistance - 1));
+	SetElevation(Operations::randd->Next(1, maxElevation));
 }
 
 LogicGate::~LogicGate()
@@ -76,9 +79,22 @@ void LogicGate::CreateInput(LogicGate* gate, int index)
 	gate->CreateOutput(link);
 }
 
-//void LogicGate::CreateOutput(LogicGate* gate)
-//{
-//	Link* link = new Link(this, gate);
-//	CreateOutput(link);
-//	
-//}
+double LogicGate::GetDistance()
+{
+	return distance;
+}
+
+void LogicGate::SetDistance(double d)
+{
+	distance = d;
+}
+
+double LogicGate::GetElevation()
+{
+	return elevation;
+}
+
+void LogicGate::SetElevation(double d)
+{
+	elevation = d;
+}

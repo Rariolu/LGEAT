@@ -2,6 +2,7 @@
 #define _LOGICGATE_H
 
 #include "MISC.h"
+#include "Operations.h"
 
 class LogicGate
 {
@@ -49,6 +50,10 @@ class LogicGate
 		//void CreateOutput(LogicGate* gate);
 		void ResetMemory();
 		int InputQuantity();
+		double GetDistance();
+		void SetDistance(double d);
+		double GetElevation();
+		void SetElevation(double d);
 	protected:
 		Link* inputLinks[2];
 		//Link* outputLink;
@@ -58,9 +63,13 @@ class LogicGate
 		bool memorised = false;
 		bool memorisedValue;
 		bool Memorise(bool val);
-		static const int maxDistance;
+		static const double maxDistance;
+		static const double maxElevation;
 	private:
+		double distance;
+		double elevation;
 		int inputQuantity;
+		
 		
 };
 

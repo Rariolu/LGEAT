@@ -149,8 +149,11 @@ void Genome::CreateLink(int source, int out, int inpIndex)
 		source = source % gates.size();
 		out = out % gates.size();
 		if (source == out) return;
-		LogicGate* inp = gates[source];
-		LogicGate* outp = gates[out];
+		LogicGate* i = gates[source];
+		LogicGate* o = gates[out];
+		if (i->GetDistance() == o->GetDistance()) return;
+		LogicGate* inp = i->GetDistance() < o->GetDistance() ? i : o;//gates[source];
+		LogicGate* outp = i->GetDistance() < o->GetDistance() ? o : i;//gates[out];
 		outp->CreateInput(inp, inpIndex%outp->InputQuantity());
 	}
 }

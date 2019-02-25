@@ -2,7 +2,7 @@
 
 OutputGate::OutputGate() : LogicGate(1)
 {
-
+	SetDistance(maxDistance);
 }
 
 OutputGate::~OutputGate()

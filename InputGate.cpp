@@ -4,7 +4,7 @@
 
 InputGate::InputGate() : LogicGate(0)
 {
-
+	SetDistance(0);
 }
 
 InputGate::~InputGate()
